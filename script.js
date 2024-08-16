@@ -411,7 +411,7 @@
 // alert( '01' == 1 ); // true, string '01' becomes a number 1
 
 // For boolean values, true becomes 1 and false becomes 0.
-//For example:
+// For example:
 // alert( true == 1 ); // true
 // alert( false == 0 ); // true
 
@@ -519,11 +519,169 @@
 // let result = !value;
 // console.log(result); // Output: false
 
-// Nullish coalescing operator '??'
-let a = null;
-let b = 'default';
 
-console.log(a ?? b); // Output: 'default'
 
-a = 0;
-console.log(a ?? b); // Output: 0 (since 0 is neither null nor undefined)
+
+// 2.12 Nullish coalescing operator '??'
+// Nullish Coalescing Operator (??): Returns the right-hand operand when the left-hand operand is null
+// or undefined; otherwise, returns the left-hand operand.
+// let a = null;
+// let b = 'default';
+// console.log(a ?? b); // Output: 'default'
+// a = 0;
+// console.log(a ?? b); // Output: 0 (since 0 is neither null nor undefined)
+
+
+
+
+// 2.13 Loop
+// While Loop
+// Syntax: 
+// while (condition) {
+//      // code 
+//      }
+// Executes the loop body while the condition is truthy.
+// Example:
+// let i = 0;
+// while (i < 3) {
+//   alert(i);
+//   i++;
+// }
+
+// do...while Loop
+// Syntax: 
+// do { 
+//     // loop body 
+//     } while (condition);
+
+// Executes the loop body at least once, then checks the condition.
+// Example:
+// let i = 0;
+// do {
+//   alert(i);
+//   i++;
+// } while (i < 3);
+
+// for Loop:
+// Syntax: for (begin; condition; step) { // code }
+// Combines initialization, condition check, and step update in one line.
+// Example:
+// for (let i = 0; i < 3; i++) {
+//   alert(i);
+// }
+
+// Break and Continue
+// Print numbers from 0 to 5, but stop if the number is 3
+// for (let i = 0; i < 10; i++) {
+//     if (i === 3) {
+//       break; // Exit the loop when i equals 3
+//     }
+//     console.log(i); // Outputs: 0, 1, 2
+//   }
+
+// Print numbers from 0 to 5, but skip the number 3
+// for (let i = 0; i < 10; i++) {
+//     if (i === 3) {
+//       continue; // Skip the current iteration when i equals 3
+//     }
+//     console.log(i); // Outputs: 0, 1, 2, 4, 5
+//   }
+  
+
+
+// 2.14 Switch Case
+// let day = 2; // Assume days of the week are numbered from 0 (Sunday) to 6 (Saturday)cls
+// switch (day) {
+//   case 0:
+//     console.log("Sunday");
+//     break;
+//   case 1:
+//     console.log("Monday");
+//     break;
+//   case 2:
+//     console.log("Tuesday");
+//     break;
+//   case 3:
+//     console.log("Wednesday");
+//     break;
+//   case 4:
+//     console.log("Thursday");
+//     break;
+//   case 5:
+//     console.log("Friday");
+//     break;
+//   case 6:
+//     console.log("Saturday");
+//     break;
+//   default:
+//     console.log("Invalid day"); // Runs if the value of `day` doesn't match any case
+// }
+
+
+
+
+// 2.15 Function
+// A JavaScript function is a block of code designed to perform a particular task.
+
+// Example: Function declaration and call
+// function showMessage() {
+//     alert( 'Hello everyone!' );
+//   }
+// showMessage()
+
+// Local Variable
+// A variable declared inside a function is only visible inside that function.
+
+// Example
+// function showMessage() {
+//     let message = "Hello, I'm Mandhoj!"; // local variable
+  
+//     alert( message );
+//   } 
+//   showMessage(); // Hello, I'm Mandhoj!
+// alert( message ); // it shows an error because the variable is local to the function
+
+// Outer Variable
+// A function can access an outer variable
+
+// Example:
+// let userName = 'Sammar';
+// function showMessage() {
+//   let message = 'Hello, ' + userName;
+//   alert(message);
+// }
+// showMessage(); // Hello, Sammar
+
+// Example:
+// let userName = 'John';
+// function showMessage() {
+//   userName = "Bob"; // (1) changed the outer variable
+//   let message = 'Hello, ' + userName;
+//   alert(message);
+// }
+// alert( userName ); // John before the function call
+// showMessage();
+// alert( userName ); // Bob, the value was modified by the function
+
+// The outer variable is only used if there’s no local one.
+// If a same-named variable is declared inside the function then it shadows the outer one.
+
+// Example:
+// let userName = 'John';
+// function showMessage() {
+//   let userName = "Bob"; // declare a local variable
+//   let message = 'Hello, ' + userName; // Bob
+//   alert(message);
+// }
+// // the function will create and use its own userName
+// showMessage();
+// alert( userName ); // John, unchanged, the function did not access the outer variable
+
+// Paramter
+// We can pass arbitrary data to functions using parameters.
+// Example:
+function showMessage(name, greeting) {
+    alert(name + '! ' + greeting);
+}
+
+showMessage('Sammar', 'How are you?');
