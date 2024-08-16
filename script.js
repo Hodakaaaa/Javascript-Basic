@@ -680,8 +680,111 @@
 // Paramter
 // We can pass arbitrary data to functions using parameters.
 // Example:
-function showMessage(name, greeting) {
-    alert(name + '! ' + greeting);
-}
+// function showMessage(name, greeting) {
+//     alert(name + '! ' + greeting);
+// }
+// showMessage('Sammar', 'How are you?');
 
-showMessage('Sammar', 'How are you?');
+// Example
+// function showMessage(from, text) {
+//     from = '*' + from + '*'; // make "from" look nicer
+//     alert( from + ': ' + text );
+//   }
+//   let from = "Ann";
+//   showMessage(from, "Hello"); // *Ann*: Hello
+//   // the value of "from" is the same, the function modified a local copy
+//   alert( from ); // Ann
+
+// Alternative Default Value
+// Modern JavaScript engines support the nullish coalescing operator ??, 
+// it’s better when most falsy values, such as 0, should be considered “normal”:
+
+// Example
+// function showCount(count) {
+//     // if count is undefined or null, show "unknown"
+//     alert(count ?? "unknown");
+//   }
+//   showCount(0); // 0
+//   showCount(null); // unknown
+//   showCount(); // unknown
+
+// Return a value 
+// function sum(a, b) {
+//     return a + b;
+//   }
+//   let result = sum(1, 2);
+//   alert( result ); // 3
+
+
+
+
+// 2.16 Function Expression
+// In JavaScript, a function expression is a way to define a function using an expression, as opposed to a function declaration.
+// Function expressions can be anonymous or named and are often used to assign a function to a variable or pass it as an argument to another function.
+//  Function Expressions have a semicolon ; at the end
+
+// Example:
+// Anonymous function expression
+// const greet = function() {
+//     console.log("Hello, world!");
+// };
+// Calling the function
+// greet();  // Output: Hello, world!
+
+// Function is a value
+// Example:
+// function sayHi() {
+//     alert( "Hello" );
+//   }
+  
+//   alert( sayHi ); // shows the function code
+
+// Example
+// function sayHi() {
+//     alert( "Hello" );
+//   }
+//   alert( sayHi ); // shows the function code
+
+// Example
+// We can copy a function to another variable:
+// function sayHi() {   // (1) create
+//     alert( "Hello" );
+//   }
+//   let func = sayHi;    // (2) copy
+//   func(); // Hello     // (3) run the copy (it works)!
+//   sayHi(); // Hello
+
+// Callback Functions
+// A callback function is a function that is passed into another function as
+// an argument and is executed after some operation has been completed.
+  
+// Example
+// function doSomething(callback){
+//     console.log("Doing Something");
+
+//     setTimeout(function(){
+//         console.log("Operation completed");
+//         callback();
+//     }, 2000);
+// }
+
+// function onComplete(){
+//     console.log("Callback function executed!");
+// }
+
+// // Passing the onComplete function as a callback to doSomething
+// doSomething(onComplete);
+
+// Example
+// function greet(name, callback) {
+//     console.log("Hello, " + name + "!");
+//     callback();
+// }
+// function sayGoodbye() {
+//     console.log("Goodbye!");
+// }
+// // Call the greet function, passing in sayGoodbye as the callback
+// greet("Alice", sayGoodbye);
+
+// Differences between Function declaration and Function Expression
+
