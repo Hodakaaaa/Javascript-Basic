@@ -786,5 +786,190 @@
 // // Call the greet function, passing in sayGoodbye as the callback
 // greet("Alice", sayGoodbye);
 
-// Differences between Function declaration and Function Expression
 
+
+
+// 2.17 Arrow Functions
+// An arrow function is a concise way to write functions in JavaScript.
+
+// Syntax
+// let func = (arg1, arg2, ..., argN) => expression;
+
+// Example
+// let sum = (a, b) => a + b;
+// alert( sum(1, 2) ); // 3
+
+// MultiLine Arrow Functions
+// let sum = (a, b) => {  // the curly brace opens a multiline function
+//     let result = a + b;
+//     return result; // if we use curly braces, then we need an explicit "return"
+//   };
+//   alert( sum(1, 2) ); // 3
+
+
+
+
+/*..............................................................................OBJECTS:THE BASIC.............................................................*/
+// 4.1 Objects
+// objects are used to store keyed collections of various data and more complex entities
+
+// An empty object (“empty cabinet”) can be created using one of two syntaxes:
+// let user = new Object(); // "object constructor" syntax
+// let user = {};  // "object literal" syntax
+
+// Literals and properties
+// We can immediately put some properties into {...} as “key: value” pairs:
+// Example:
+// let user = {     // an object
+//     name: "John",  // by key "name" store value "John"
+//     age: 30        // by key "age" store value 30
+//   };
+
+// Property values are accessible using the dot notation:
+// alert( user.name ); // John
+// alert( user.age ); // 30
+
+// To remove a property, we can use the delete operator:
+// delete user.age;
+
+// We can also use multiword property names, but then they must be quoted:
+// let user = {
+//   name: "John",
+//   age: 30,
+//   "likes birds": true  // multiword property name must be quoted
+// };
+
+// The last property in the list may end with a comma:
+// let user = {
+//   name: "John",
+//   age: 30,
+// }
+
+// The last property in the list may end with a comma:
+// let user = {
+//   name: "John",
+//   age: 30,
+// }
+
+// Example:
+//let user = {};
+// set
+// user["likes birds"] = true;
+// get
+//alert(user["likes birds"]); // true
+// delete
+// delete user["likes birds"];
+
+// Example:
+// let user = {
+//     name: "John",
+//     age: 30
+//   };
+//   let key = prompt("What do you want to know about the user?", "name");
+//   // access by variable
+//   alert( user[key] ); // John (if enter "name")
+
+// Computed properties
+// We can use square brackets in an object literal, when creating an object. That’s called computed properties.
+// Example:
+// let fruit = prompt("Which fruit to buy?", "apple");
+// let bag = {
+// [fruit]: 5, // the name of the property is taken from the variable fruit
+// };
+// alert( bag.apple ); // 5 if fruit="apple"
+
+// Property value shorthand
+// In real code, we often use existing variables as values for property names.
+// For instance:
+// function makeUser(name, age) {
+//   return {
+//     name: name,
+//     age: age,
+//     // ...other properties
+//   };
+// }
+// let user = makeUser("John", 30);
+// alert(user.name); // John
+
+// In the example above, properties have the same names as variables. The use-case of making a property from a variable is so common, that there’s a special property value shorthand to make it shorter.
+// Instead of name:name we can just write name, like this:
+
+// function makeUser(name, age) {
+//   return {
+//     name, // same as name: name
+//     age,  // same as age: age
+//     // ...
+//   };
+// }
+
+// We can use both normal properties and shorthands in the same object:
+// let user = {
+//   name,  // same as name:name
+//   age: 30
+// };
+
+// Property names limitations
+// As we already know, a variable cannot have a name equal to one of the language-reserved words like “for”, “let”, “return” etc.
+// But for an object property, there’s no such restriction:
+
+// Example:
+// these properties are all right
+// let obj = {
+//   for: 1,
+//   let: 2,
+//   return: 3
+// };
+
+// alert( obj.for + obj.let + obj.return );  // 6
+
+// Property existence test, “in” operator
+// A notable feature of objects in JavaScript, compared to many other languages, is that it’s possible to access any property.
+// There will be no error if the property doesn’t exist!
+// Reading a non-existing property just returns undefined. So we can easily test whether the property exists:
+
+// Example
+// let user = {};
+// alert( user.noSuchProperty === undefined ); // true means "no such property"
+
+// There’s also a special operator "in" for that.
+// The syntax is:
+// "key" in object
+
+// For instance:
+// let user = { name: "John", age: 30 };
+// alert( "age" in user ); // true, user.age exists
+// alert( "blabla" in user ); // false, user.blabla doesn't exist
+
+// Please note that on the left side of in there must be a property name. That’s usually a quoted string.
+// If we omit quotes, that means a variable should contain the actual name to be tested. For instance:
+
+// let user = { age: 30 };
+// let key = "age";
+// alert( key in user ); // true, property "age" exists
+
+// The "for..in" loop
+// To walk over all keys of an object, there exists a special form of the loop: for..in. This is a completely different thing from the for(;;) construct that we studied before.
+
+// For Syntax:
+// for (key in object) {
+//     // executes the body for each key among object properties
+//   }
+
+// Example:
+// let user = {
+//     name: "John",
+//     age: 30,
+//     isAdmin: true
+//   };
+  
+//   for (let key in user) {
+//     // keys
+//     alert( key );  // name, age, isAdmin
+//     // values for the keys
+//     alert( user[key] ); // John, 30, true
+//   }
+
+// // Math.trunc is a built-in function that removes the decimal part
+// alert( String(Math.trunc(Number("49"))) ); // "49", same, integer property
+// alert( String(Math.trunc(Number("+49"))) ); // "49", not same "+49" ⇒ not integer property
+// alert( String(Math.trunc(Number("1.2"))) ); // "1", not same "1.2" ⇒ not integer property
