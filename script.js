@@ -973,3 +973,96 @@
 // alert( String(Math.trunc(Number("49"))) ); // "49", same, integer property
 // alert( String(Math.trunc(Number("+49"))) ); // "49", not same "+49" ⇒ not integer property
 // alert( String(Math.trunc(Number("1.2"))) ); // "1", not same "1.2" ⇒ not integer property
+
+
+
+ 
+// Object references and copying
+// One of the fundamental differences of objects versus primitives is that objects are stored and copied “by reference”, 
+// whereas primitive values: strings, numbers, booleans, etc – are always copied “as a whole value”.
+
+// Let’s start with a primitive, such as a string.
+// Here we put a copy of message into phrase:
+// let message = "Hello!";
+// let phrase = message;
+// As a result we have two independent variables, each one storing the string "Hello!".
+
+// Objects are not like that.
+// A variable assigned to an object stores not the object itself, but its “address in memory” – in other words “a reference” to it.
+// Let’s look at an example of such a variable:
+// let user = {
+//   name: "John"
+// };
+// let admin = user // copy the reference
+
+// We can use either variable to access the object and modify its contents:
+// let user = { name: 'John' };
+// let admin = user;
+// admin.name = 'Pete'; // changed by the "admin" reference
+// alert(user.name); // 'Pete', changes are seen from the "user" reference
+
+// Comparison by reference
+// Two objects are equal only if they are the same object.
+// Example
+// let a = {};
+// let b = a; // copy the reference
+// alert( a == b ); // true, both variables reference the same object
+// alert( a === b ); // true
+
+// And here two independent objects are not equal, even though they look alike (both are empty):
+// let a = {};
+// let b = {}; // two independent objects
+// alert( a == b ); // false
+
+// Const objects can be modified
+// An important side effect of storing objects as references is that an object declared as const can be modified.
+// For instance:
+// const user = {
+//   name: "John"
+// };
+// user.name = "Pete"; // (*)
+// alert(user.name); // Pete
+//  The value of user is constant, it must always reference the same object, but properties of that object are free to change.
+
+// Cloning and merging, Object.assign
+// So, copying an object variable creates one more reference to the same object.
+// But what if we need to duplicate an object?
+// We can create a new object and replicate the structure of the existing one, by iterating over its properties and copying them on the primitive level.
+// Like this:
+// let user = {
+//     name: "John",
+//     age: 30
+//   };
+//   let clone = {}; // the new empty object
+//   // let's copy all user properties into it
+//   for (let key in user) {
+//     clone[key] = user[key];
+//   }
+//   // now clone is a fully independent object with the same content
+//   clone.name = "Pete"; // changed the data in it
+//   alert( user.name ); // still John in the original object
+
+// We can also use the method Object.assign.
+// The syntax is:
+// Object.assign(dest, ...sources)
+// The first argument dest is a target object.
+// Further arguments is a list of source objects.
+// It copies the properties of all source objects into the target dest, and then returns it as the result.
+
+// For example, we have user object, let’s add a couple of permissions to it:
+// let user = { name: "John" };
+// let permissions1 = { canView: true };
+// let permissions2 = { canEdit: true };
+// // copies all properties from permissions1 and permissions2 into user
+// Object.assign(user, permissions1, permissions2);
+// // now user = { name: "John", canView: true, canEdit: true }
+// alert(user.name); // John
+// alert(user.canView); // true
+// alert(user.canEdit); // true
+
+// If the copied property name already exists, it gets overwritten:
+// let user = { name: "John" };
+// Object.assign(user, { name: "Pete" });
+// alert(user.name); // now user = { name: "Pete" }
+
+
