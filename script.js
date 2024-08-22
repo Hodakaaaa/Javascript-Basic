@@ -977,7 +977,7 @@
 
 
  
-// Object references and copying
+// 4.2 Object references and copying
 // One of the fundamental differences of objects versus primitives is that objects are stored and copied “by reference”, 
 // whereas primitive values: strings, numbers, booleans, etc – are always copied “as a whole value”.
 
@@ -1065,4 +1065,80 @@
 // Object.assign(user, { name: "Pete" });
 // alert(user.name); // now user = { name: "Pete" }
 
+
+
+
+// 4.4 Object Methods, "this"
+// Objects are usually created to represent entities of the real world, like users, orders and so on:
+// Example:
+// let user = {
+//   name: "John",
+//   age: 30
+// };
+
+// Method examples
+// For a start, let’s teach the user to say hello:
+// let user = {
+//   name: "John",
+//   age: 30
+// };
+// user.sayHi = function() {
+//   alert("Hello!");
+// };
+// user.sayHi(); // Hello!
+
+// we could also use a pre-declared function as a method, like this:
+// let user = {
+//   // ...
+// };
+// // first, declare
+// function sayHi() {
+//   alert("Hello!");
+// }
+// // then add as a method
+// user.sayHi = sayHi;
+// user.sayHi(); // Hello!
+
+// “this” in methods
+// It’s common that an object method needs to access the information stored in the object to do its job.
+// For instance, the code inside user.sayHi() may need the name of the user.
+// To access the object, a method can use the this keyword.
+// The value of this is the object “before dot”, the one used to call the method.
+
+// For instance:
+// let user = {
+//   name: "John",
+//   age: 30,
+
+//   sayHi() {
+//     // "this" is the "current object"
+//     alert(this.name);
+//   }
+
+// };
+
+// user.sayHi(); // John
+
+// Arrow functions have no “this”
+// Arrow functions are special: they don’t have their “own” this. If we reference this from such a function, it’s taken from the outer “normal” function.
+
+// For instance, here arrow() uses this from the outer user.sayHi() method:
+// let user = {
+//   firstName: "Ilya",
+//   sayHi() {
+//     let arrow = () => alert(this.firstName);
+//     arrow();
+//   }
+// };
+// user.sayHi(); // Ilya
+
+// Summary
+// Functions that are stored in object properties are called “methods”.
+// Methods allow objects to “act” like object.doSomething().
+// Methods can reference the object as this.
+// The value of this is defined at run-time.
+
+// When a function is declared, it may use this, but that this has no value until the function is called.
+// A function can be copied between objects.
+// When a function is called in the “method” syntax: object.method(), the value of this during the call is object.
 
