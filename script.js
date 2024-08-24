@@ -1142,3 +1142,63 @@
 // A function can be copied between objects.
 // When a function is called in the “method” syntax: object.method(), the value of this during the call is object.
 
+
+
+
+// CLOSURE IN JAVASCRIPT
+// Closure simply means the function with its lexical enironment
+
+// Example1:
+// function init(){
+//     var name = "Mandhoj";
+//     function displayName(){
+//         console.log(name);
+//     }
+//     displayName();
+// }
+// init();
+
+// Example2:
+// function init(){
+//     var name = "Mandhoj";
+//     function displayName(){
+//         console.log(name);
+//     }
+//     name = "Sammar";
+//     return displayName;
+// }
+// let c = init();
+// c()
+
+// Example3:
+function returnFunc() {
+    const x = () => {
+        let a = 1;
+        console.log(a);
+    };
+
+    const y = () => {
+        let a = 2;
+        console.log(a);
+    };
+
+    const z = () => {
+        let a = 3;
+        console.log(a);
+    };
+
+    // Return a function that calls x, y, and z in sequence
+    return () => {
+        x();
+        y();
+        z();
+    };
+}
+
+// Call 'returnFunc' which returns a function
+let mandhoj = returnFunc();
+
+// Call the returned function to execute x, y, and z
+mandhoj();
+
+
