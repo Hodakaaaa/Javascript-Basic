@@ -1275,36 +1275,132 @@
 // console.log(promise);
 
 // Example2:
-let p1 = new Promise(function(resolve, reject){
-    console.log("Promise is pending");
-    setTimeout(()=>{
-        console.log("I am promise and i am resolved");
-        resolve(true);
-    }, 5000);
-})
+// let p1 = new Promise(function(resolve, reject){
+//     console.log("Promise is pending");
+//     setTimeout(()=>{
+//         console.log("I am promise and i am resolved");
+//         resolve(true);
+//     }, 5000);
+// })
 
-let p2 = new Promise(function(resolve, reject){
-    console.log("Promise is pending");
-    setTimeout(() => {
-        console.log("I am promise and i am being rejected");
-        reject(new Error("I am an error"));
-    }, 5000);
-})
+// let p2 = new Promise(function(resolve, reject){
+//     console.log("Promise is pending");
+//     setTimeout(() => {
+//         console.log("I am promise and i am being rejected");
+//         reject(new Error("I am an error"));
+//     }, 5000);
+// })
 
-p1.then((value)=>{
-    console.log(value)
-})
+// p1.then((value)=>{
+//     console.log(value)
+// })
 
-p2.catch((error)=>{
-    console.log("Some error occured in p2")
-})
+// p2.catch((error)=>{
+//     console.log("Some error occured in p2")
+// })
 
-// p2.catch((value)=>{
-//     console.log()
-// }) 
-
+// console.log(p1);
+// console.log(p2);
 
 
-console.log(p1);
-console.log(p2);
+
+
+// CLASS AND OBJECTS
+// Example1:
+// class RailwayForm{
+//     submit(){
+//         alert("Form is submitted");
+//     }
+
+//     cancel(){
+//         alert("Form is being cancel");
+//     }
+// }
+
+// //Creating a instance of RailwayForm class
+// let MandhojForm = new RailwayForm();
+// let SammarForm = new RailwayForm();
+
+// MandhojForm.submit();
+// SammarForm.cancel();
+
+// Example2:
+// class RailwayForm{
+//     submit(){
+//         alert("Form is submitted");
+//     }
+
+//     cancel(){
+//         alert(this.name + "Form is being cancel");
+//     }
+
+//     fill(fillname){
+//         this.name = fillname;
+//     }
+// }
+
+// //Creating a instance of RailwayForm class
+// let MandhojForm = new RailwayForm();
+// MandhojForm.fill("Mandhoj")
+
+// let SammarForm = new RailwayForm();
+// SammarForm.fill("Sammar");
+
+// MandhojForm.submit();
+// SammarForm.cancel();
+
+
+
+
+// CONSTRUCTOR
+// A constructor is a special method in a class that is automatically called when a new instance (or object) of that class is created
+
+//Example1:
+// class RailwayForm {
+//     constructor(){
+//         console.log("Constrcutor is being called");
+//     }
+
+//     submit() {
+//         alert("Form is being submitted");
+//     }
+
+//     cancel() {
+//         alert("Form is being cancelled");
+//     }
+// }
+
+// let mandhoj = new RailwayForm();
+// let sammar = new RailwayForm();
+// let surbhi = new RailwayForm();
+// mandhoj.submit();
+// sammar.submit();
+// sammar.cancel();
+// surbhi.submit();
+
+// Example2:
+class RailwayForm {
+    constructor(fillname){
+        console.log("Constrcutor is being called");
+        this.name = fillname;
+    }
+
+    submit() {
+        alert(this.name + ": Form is being submitted");
+    }
+
+    cancel() {
+        alert(this.name + ": Form is being cancel");
+    }
+}
+
+let mandhoj = new RailwayForm("Mandhoj");
+let sammar = new RailwayForm("Sammar");
+let surbhi = new RailwayForm("Surbhi");
+mandhoj.submit();
+sammar.submit();
+sammar.cancel();
+surbhi.submit();
+
+
 
