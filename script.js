@@ -1171,34 +1171,140 @@
 // c()
 
 // Example3:
-function returnFunc() {
-    const x = () => {
-        let a = 1;
-        console.log(a);
-    };
+// function returnFunc() {
+//     const x = () => {
+//         let a = 1;
+//         console.log(a);
+//     };
 
-    const y = () => {
-        let a = 2;
-        console.log(a);
-    };
+//     const y = () => {
+//         let a = 2;
+//         console.log(a);
+//     };
 
-    const z = () => {
-        let a = 3;
-        console.log(a);
-    };
+//     const z = () => {
+//         let a = 3;
+//         console.log(a);
+//     };
 
-    // Return a function that calls x, y, and z in sequence
-    return () => {
-        x();
-        y();
-        z();
-    };
-}
+//     // Return a function that calls x, y, and z in sequence
+//     return () => {
+//         x();
+//         y();
+//         z();
+//     };
+// }
 
-// Call 'returnFunc' which returns a function
-let mandhoj = returnFunc();
+// // Call 'returnFunc' which returns a function
+// let mandhoj = returnFunc();
 
-// Call the returned function to execute x, y, and z
-mandhoj();
+// // Call the returned function to execute x, y, and z
+// mandhoj();
 
+
+
+
+// PROMISE
+
+// Here’s an example of a promise constructor and a simple executor function with “producing code” that takes time (via setTimeout):
+// let promise = new Promise(function(resolve, reject) {
+//   // the function is executed automatically when the promise is constructed
+
+//   // after 1 second signal that the job is done with the result "done"
+//   setTimeout(() => resolve("done"), 1000);
+// });
+
+// And now an example of the executor rejecting the promise with an error:
+// let promise = new Promise(function(resolve, reject) {
+//   // after 1 second signal that the job is finished with an error
+//   setTimeout(() => reject(new Error("Whoops!")), 1000);
+// });
+
+// There can be only a single result or an error
+// The executor should call only one resolve or one reject. Any state change is final.
+// All further calls of resolve and reject are ignored:
+// let promise = new Promise(function(resolve, reject) {
+//   resolve("done");
+
+//   reject(new Error("…")); // ignored
+//   setTimeout(() => resolve("…")); // ignored
+// });
+
+// .then method
+
+// For instance, here’s a reaction to a successfully resolved promise:
+// let promise = new Promise(function(resolve, reject) {
+//   setTimeout(() => resolve("done!"), 1000);
+// });
+
+// // resolve runs the first function in .then
+// promise.then(
+//   result => alert(result), // shows "done!" after 1 second
+//   error => alert(error) // doesn't run
+// );
+
+// And in the case of a rejection, the second one:
+// let promise = new Promise(function(resolve, reject) {
+//   setTimeout(() => reject(new Error("Whoops!")), 1000);
+// });
+
+// // reject runs the second function in .then
+// promise.then(
+//   result => alert(result), // doesn't run
+//   error => alert(error) // shows "Error: Whoops!" after 1 second
+// );
+
+// .catch method
+// let promise = new Promise((resolve, reject) => {
+//     setTimeout(() => reject(new Error("Whoops!")), 1000);
+//   });
+  
+//   // .catch(f) is the same as promise.then(null, f)
+//   promise.catch(alert); // shows "Error: Whoops!" after 1 second
+
+// Simple Example:
+// let promise = new Promise(function(resolve, reject){
+//     alert("I am promise");
+//     // resolve(123);
+// })
+// console.log("Hello mandhoj");
+// setTimeout(function(){
+//     console.log("Sorry for being two minute late")
+// }, 2000)
+// console.log("My name is" + "Mandhoj");
+// console.log(promise);
+
+// Example2:
+let p1 = new Promise(function(resolve, reject){
+    console.log("Promise is pending");
+    setTimeout(()=>{
+        console.log("I am promise and i am resolved");
+        resolve(true);
+    }, 5000);
+})
+
+let p2 = new Promise(function(resolve, reject){
+    console.log("Promise is pending");
+    setTimeout(() => {
+        console.log("I am promise and i am being rejected");
+        reject(new Error("I am an error"));
+    }, 5000);
+})
+
+p1.then((value)=>{
+    console.log(value)
+})
+
+p2.catch((error)=>{
+    console.log("Some error occured in p2")
+})
+
+// p2.catch((value)=>{
+//     console.log()
+// }) 
+
+
+
+console.log(p1);
+console.log(p2);
 
