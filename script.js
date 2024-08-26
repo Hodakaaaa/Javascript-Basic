@@ -1379,28 +1379,51 @@
 // surbhi.submit();
 
 // Example2:
-class RailwayForm {
-    constructor(fillname){
-        console.log("Constrcutor is being called");
-        this.name = fillname;
-    }
+// class RailwayForm {
+//     constructor(fillname){
+//         console.log("Constrcutor is being called");
+//         this.name = fillname;
+//     }
 
-    submit() {
-        alert(this.name + ": Form is being submitted");
-    }
+//     submit() {
+//         alert(this.name + ": Form is being submitted");
+//     }
 
-    cancel() {
-        alert(this.name + ": Form is being cancel");
+//     cancel() {
+//         alert(this.name + ": Form is being cancel");
+//     }
+// }
+
+// let mandhoj = new RailwayForm("Mandhoj");
+// let sammar = new RailwayForm("Sammar");
+// let surbhi = new RailwayForm("Surbhi");
+// mandhoj.submit();
+// sammar.submit();
+// sammar.cancel();
+// surbhi.submit();
+
+
+
+
+// PROTOTYPE
+// Javascript objects have special property called prototype that is either null or references another object
+// In simple words, a prototype on javascript is a blueprint for objects.
+// It allows objects to inherit properties and methods from another object.
+
+// Example:
+let a = {
+    name:"Mandhoj",
+    language:"Javascript"
+}
+console.log(a);
+
+let p = {
+    run: ()=>{
+        alert("run");
     }
 }
-
-let mandhoj = new RailwayForm("Mandhoj");
-let sammar = new RailwayForm("Sammar");
-let surbhi = new RailwayForm("Surbhi");
-mandhoj.submit();
-sammar.submit();
-sammar.cancel();
-surbhi.submit();
+a.__proto__ = p;
+a.run()
 
 
 
