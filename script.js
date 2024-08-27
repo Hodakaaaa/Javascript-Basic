@@ -1411,19 +1411,63 @@
 // It allows objects to inherit properties and methods from another object.
 
 // Example:
-let a = {
-    name:"Mandhoj",
-    language:"Javascript"
-}
-console.log(a);
+// let a = {
+//     name:"Mandhoj",
+//     language:"Javascript"
+// }
+// console.log(a);
 
-let p = {
-    run: ()=>{
-        alert("run");
-    }
-}
-a.__proto__ = p;
-a.run()
+// let p = {
+//     run: ()=>{
+//         alert("run");
+//     }
+// }
+// a.__proto__ = p;
+// a.run()
+
+
+
+
+// COOKIES, LOCAL STORAGE AND SESSION
+// Cookies are the small strings of data stores directly in the browser
+// In javascript , document cookie provides access to cookies.
+
+// Cookies are set by a web server using the set-cookie HTTP-header.
+// Next time when the request is set to the same domain, the browser send the cookie
+// using the cookie HTTP-header. That way the server knows who sent the request.
+
+// To see the cookies
+alert(document.cookie);  
+
+// To add your own cookie
+document.cookie = "name=Mandhoj";
+document.cookie
+
+// Simple Example:
+console.log(document.cookie);
+document.cookie = "name=Sammar111111";
+document.cookie = "name2=Surbhi111111";
+// update the name cookie
+document.cookie = "name=Mandhoj1111111";
+console.log(document.cookie);
+
+// Encode URI component
+// console.log(document.cookie);
+// document.cookie = "name=Sammar111111";
+// let key = prompt("Enter your key");
+// let value = prompt("Enter your pair ");
+// document.cookie = `${key} = ${value}`;
+// console.log(document.cookie);
+
+// The above code doesn't accept the sepcial character like ;.After it doesnt print anything.
+// For that we used the special function name encodeURIComponent
+
+console.log(document.cookie);
+document.cookie = "name=Sammar111111";
+let key = prompt("Enter your key");
+let value = prompt("Enter your pair ");
+document.cookie = `${encodeURIComponent(key)} = ${value}`;
+console.log(document.cookie);
 
 
 
