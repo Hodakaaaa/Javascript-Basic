@@ -1437,19 +1437,19 @@
 // using the cookie HTTP-header. That way the server knows who sent the request.
 
 // To see the cookies
-alert(document.cookie);  
+// alert(document.cookie);  
 
 // To add your own cookie
-document.cookie = "name=Mandhoj";
-document.cookie
+// document.cookie = "name=Mandhoj";
+// document.cookie
 
 // Simple Example:
-console.log(document.cookie);
-document.cookie = "name=Sammar111111";
-document.cookie = "name2=Surbhi111111";
+// console.log(document.cookie);
+// document.cookie = "name=Sammar111111";
+// document.cookie = "name2=Surbhi111111";
 // update the name cookie
-document.cookie = "name=Mandhoj1111111";
-console.log(document.cookie);
+// document.cookie = "name=Mandhoj1111111";
+// console.log(document.cookie);
 
 // Encode URI component
 // console.log(document.cookie);
@@ -1462,12 +1462,26 @@ console.log(document.cookie);
 // The above code doesn't accept the sepcial character like ;.After it doesnt print anything.
 // For that we used the special function name encodeURIComponent
 
-console.log(document.cookie);
-document.cookie = "name=Sammar111111";
-let key = prompt("Enter your key");
-let value = prompt("Enter your pair ");
-document.cookie = `${encodeURIComponent(key)} = ${value}`;
-console.log(document.cookie);
+// console.log(document.cookie);
+// document.cookie = "name=Sammar111111";
+// let key = prompt("Enter your key");
+// let value = prompt("Enter your pair ");
+// document.cookie = `${encodeURIComponent(key)} = ${value}`;
+// console.log(document.cookie);
+
+// For decoding
+// decodeURIComponent("value");
 
 
 
+
+// LOCAL STORAGE
+
+// To set a value
+localStorage.setItem("name", "Mandhoj");
+
+// Simple Example
+let key = prompt("Enter key you want to set: ");
+let value = prompt("Enter value you want to set: ");
+localStorage.setItem(key, value);
+console.log(`The value at ${key} is ${localStorage.getItem(key)}`);
