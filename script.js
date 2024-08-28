@@ -1510,7 +1510,16 @@
 
 
 // SESSION STORAGE
+// used less often than localstorage. Properties and methods are the same as local storage but
+// the sessionStorage exists only within the current browsertab. Anoter tab with same page will have a different storage
+// the data survives page refresh, but not closing or opening the tab
 
+// Example:
+sessionStorage.setItem('username', 'Mandhoj Thing');
+
+// Retrieve data 
+let user = sessionStorage.getItem("username");
+console.log(user);
 
 
 
@@ -1551,80 +1560,80 @@
 
 // 1. toString(): this method simply converts array to a string
 // Example1:
-let num = [1, 2, 3, 4];
-let a = num.toString();
-console.log(a);
-console.log(typeof(a));
+// let num = [1, 2, 3, 4];
+// let a = num.toString();
+// console.log(a);
+// console.log(typeof(a));
 
 // 2. join(): joins, all the array elements using a separator
-let c = num.join("-");
-console.log(c);
-console.log(typeof(c));
+// let c = num.join("-");
+// console.log(c);
+// console.log(typeof(c));
 
 // 3. pop(): removes the last element from the array
-let b = num.pop(); //pop returns the popped element
-console.log(b, num); 
+// let b = num.pop(); //pop returns the popped element
+// console.log(b, num); 
 
 // 4. push(): adds a new element at the end of the array
-let d = num.push("Mandhoj"); // push returns the new array length
-console.log(d, num);
+// let d = num.push("Mandhoj"); // push returns the new array length
+// console.log(d, num);
 
 // 5. shift(): removes the first element and returns it
-let e = num.shift();
-console.log(e, num);
+// let e = num.shift();
+// console.log(e, num);
 
 // 6. unshift(): add the element to the beginning and returns new array length
-let f = num.unshift("Sammar");
-console.log(f, num);
+// let f = num.unshift("Sammar");
+// console.log(f, num);
 
 // 7. delete(): array elements can be deleted using the delete and delete is an operator not the method
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-console.log(arr.length);
-delete arr[5];
-console.log(arr.length, arr);
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// console.log(arr.length);
+// delete arr[5];
+// console.log(arr.length, arr);
 
 // 8. concat(): used to join arrays to the given arrays
-let arr1 = [1, 2, 3];
-let arr2 = [4, 5, 6];
-let arr3 = [7, 8, 9];
-let arr4 = arr1.concat(arr2, arr3);
-console.log(arr4);
+// let arr1 = [1, 2, 3];
+// let arr2 = [4, 5, 6];
+// let arr3 = [7, 8, 9];
+// let arr4 = arr1.concat(arr2, arr3);
+// console.log(arr4);
 
 // 9. sort(): used to sort an array alphabetically
-let array = [4455, 78993, 5674, 8, 9, 1, 90];
-array.sort();
-console.log(array);
+// let array = [4455, 78993, 5674, 8, 9, 1, 90];
+// array.sort();
+// console.log(array);
 
-let compare = (a, b) =>{
-    return a - b
-}
-let array1 = [4455, 78993, 5674, 8, 9, 1, 90];
-array1.sort(compare);
-console.log(array1);
+// let compare = (a, b) =>{
+//     return a - b
+// }
+// let array1 = [4455, 78993, 5674, 8, 9, 1, 90];
+// array1.sort(compare);
+// console.log(array1);
 
 // 10. reverse(): reverses the elements in the source array
-let age = [50, 34, 56, 23, 12, 32];
-age.reverse();
-console.log(age);
+// let age = [50, 34, 56, 23, 12, 32];
+// age.reverse();
+// console.log(age);
 
 // 11. splice(): used to add new items to an array
-let number = [551, 22, 3, 14, 5, 6, 7, 8, 19];
+// let number = [551, 22, 3, 14, 5, 6, 7, 8, 19];
 // number.splice(2, 4, "red", "black", "green", "pink");
 // console.log(number);
-let showDeletedValue = number.splice(2, 4, "red", "black", "green", "pink");
-console.log(showDeletedValue);
+// let showDeletedValue = number.splice(2, 4, "red", "black", "green", "pink");
+// console.log(showDeletedValue);
 
 // 12. slice(): slices out a piece from an array. It creates a new array
-let number1 = [1, 2, 3, 4, 6];
-let number2 = number1.slice(1, 4);
-console.log(number2);
+// let number1 = [1, 2, 3, 4, 6];
+// let number2 = number1.slice(1, 4);
+// console.log(number2);
 
 // 13. map(): creates a new array by applying a function to each element of the original array. It's used when you want to change or transform all the items in an array.
-let numbers = [1, 2, 3, 4];
-let doubled = numbers.map(number => number*2);
-console.log(doubled);
+// let numbers = [1, 2, 3, 4];
+// let doubled = numbers.map(number => number*2);
+// console.log(doubled);
 
 // 14. filter(): creates a new array containing only the elements that pass a certain test (return true). It's used when you want to keep only certain items from an array based on a condition.
-const numbers1 = [1, 2, 3, 4];
-const greaterThanTwo = numbers1.filter(number => number > 2);
-console.log(greaterThanTwo); // Output: [3, 4]
+// const numbers1 = [1, 2, 3, 4];
+// const greaterThanTwo = numbers1.filter(number => number > 2);
+// console.log(greaterThanTwo); 
