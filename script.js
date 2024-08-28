@@ -1476,12 +1476,71 @@
 
 
 // LOCAL STORAGE
+// Local Storage is a web storage object which are not sent to server with each request.
+// This data survives a full page refresh and even full browser restart.
 
 // To set a value
-localStorage.setItem("name", "Mandhoj");
+// localStorage.setItem("name", "Mandhoj");
 
 // Simple Example
-let key = prompt("Enter key you want to set: ");
-let value = prompt("Enter value you want to set: ");
-localStorage.setItem(key, value);
-console.log(`The value at ${key} is ${localStorage.getItem(key)}`);
+// let key = prompt("Enter key you want to set: ");
+// let value = prompt("Enter value you want to set: ");
+// localStorage.setItem(key, value);
+// console.log(`The value at ${key} is ${localStorage.getItem(key)}`);
+
+// Example: removeItem(key)
+// let key = prompt("Enter key you want to set: ");
+// let value = prompt("Enter value you want to set: ");
+// localStorage.setItem(key, value);
+// console.log(`The value at ${key} is ${localStorage.getItem(key)}`);
+
+// if(key == "red" || key == "blue"){
+//     localStorage.removeItem(key);
+// }
+
+// clears everything
+// if(key == 0){
+//     localStorage.clear();
+// }
+
+// to know the length
+// localStorage.length
+
+
+
+
+// SESSION STORAGE
+
+
+
+
+// ARRAY
+// Array is a special type of object used to store multiple values in a single variable. 
+// Arrays can hold any type of data, including numbers, strings, objects, and even other arrays. 
+// Each value in an array is called an element, and each element has an index, which is a number that represents the element's position in the array.
+
+
+// Example:
+let marks = [10, 20, 30, 40, 50];
+console.log(marks);
+console.log(marks[0]);
+console.log(marks[1]);
+console.log(marks[2]);
+console.log(marks[3]);
+console.log(marks[4]);
+console.log(marks[5]); // will be undefined because the index 5 doesnt exit
+console.log("The total length of marks is: ", marks.length);
+marks[5] = 60;
+console.log(marks[5]);
+console.log("The total length of marks is: ", marks.length);
+console.log(typeof(marks)) // array is an object
+
+// Using the for loop
+for(let i=0; i<=marks.length-1; i++){
+    console.log(marks[i]);
+}
+
+// Using arrow function with forEach to iterate over the array
+marks.forEach((mark) => {
+    console.log(mark); // Prints each element of the marks array
+});
