@@ -1515,11 +1515,11 @@
 // the data survives page refresh, but not closing or opening the tab
 
 // Example:
-sessionStorage.setItem('username', 'Mandhoj Thing');
+// sessionStorage.setItem('username', 'Mandhoj Thing');
 
 // Retrieve data 
-let user = sessionStorage.getItem("username");
-console.log(user);
+// let user = sessionStorage.getItem("username");
+// console.log(user);
 
 
 
@@ -1637,3 +1637,32 @@ console.log(user);
 // const numbers1 = [1, 2, 3, 4];
 // const greaterThanTwo = numbers1.filter(number => number > 2);
 // console.log(greaterThanTwo); 
+
+
+
+
+// ERROR HANDLING:TRY AND CATCH
+
+setTimeout(()=>{
+    let name = prompt("Enter your username: ")
+    console.log("Your account has been hacked", name);
+}, 1000);
+
+try{
+    console.log(mandhoj);
+}
+catch(error){
+    console.log("I am running because it has caught an error");
+}
+
+setTimeout(()=>{
+    console.log("Fetching username and password...Please wait...");
+}, 2000);
+
+setTimeout(()=>{
+    console.log("Updating the user data and privacy...Please Wait...");
+}, 2000);
+
+setTimeout(() => {
+    console.log(`Username and password of Mandhoj fetched`);
+}, 2000);
