@@ -1642,27 +1642,67 @@
 
 
 // ERROR HANDLING:TRY AND CATCH
+// Exception handling in JavaScript is done using the try...catch statement. 
+// This allows you to write code that handles errors gracefully, preventing the program from crashing when an error occurs. 
+// The basic syntax of exception handling in JavaScript is:
 
-setTimeout(()=>{
-    let name = prompt("Enter your username: ")
-    console.log("Your account has been hacked", name);
-}, 1000);
+// try {
+//     // Code that may throw an error
+//   } catch (error) {
+//     // Code to handle the error
+//   } finally {
+//     // Code that will always run, regardless of whether an error occurred or not
+//   }
+  
+// Example:
+// setTimeout(()=>{
+//     let name = prompt("Enter your username: ")
+//     console.log("Your account has been hacked", name);
+// }, 1000);
 
-try{
-    console.log(mandhoj);
+// try{
+//     console.log(mandhoj);
+// }
+// catch(error){
+//     console.log("I am running because it has caught an error");
+// }
+
+// setTimeout(()=>{
+//     console.log("Fetching username and password...Please wait...");
+// }, 2000);
+
+// setTimeout(()=>{
+//     console.log("Updating the user data and privacy...Please Wait...");
+// }, 2000);
+
+// setTimeout(() => {
+//     console.log(`Username and password of Mandhoj fetched`);
+// }, 2000);
+
+
+
+
+// HOISTING
+
+// Example:
+
+// let a;
+// Following two lines wll run successfully due to Javascript hositing
+console.log(a);
+hello();
+function hello(){
+    console.log("Hello! World")
 }
-catch(error){
-    console.log("I am running because it has caught an error");
-}
 
-setTimeout(()=>{
-    console.log("Fetching username and password...Please wait...");
-}, 2000);
+var a = 9; // Declaration hosited to the top but initialization is not
+console.log(a);
 
-setTimeout(()=>{
-    console.log("Updating the user data and privacy...Please Wait...");
-}, 2000);
+// this throws an error because the let and const should be declared before its initialization in hositing
+// let a = 9;
+// console.log(a);
 
-setTimeout(() => {
-    console.log(`Username and password of Mandhoj fetched`);
-}, 2000);
+console.log(hoistedVar); // Output: undefined (declaration is hoisted, but not the assignment)
+
+var hoistedVar = "This variable has been hoisted.";
+console.log(hoistedVar);
+
