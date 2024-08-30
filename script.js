@@ -1683,26 +1683,49 @@
 
 
 // HOISTING
+// Hoisting is a JavaScript behavior in which variable and function declarations are moved to the top of their containing scope during the compile phase,
+//  before the code is executed. 
+// This means that you can use variables and functions before you declare them in your code, 
+// although the behavior differs slightly between variables declared with var and those declared with let and const.
 
 // Example:
-
 // let a;
 // Following two lines wll run successfully due to Javascript hositing
-console.log(a);
-hello();
-function hello(){
-    console.log("Hello! World")
-}
+// console.log(a);
+// hello();
+// function hello(){
+//     console.log("Hello! World")
+// }
 
-var a = 9; // Declaration hosited to the top but initialization is not
-console.log(a);
+// var a = 9; // Declaration hosited to the top but initialization is not
+// console.log(a);
 
 // this throws an error because the let and const should be declared before its initialization in hositing
 // let a = 9;
 // console.log(a);
 
-console.log(hoistedVar); // Output: undefined (declaration is hoisted, but not the assignment)
 
-var hoistedVar = "This variable has been hoisted.";
-console.log(hoistedVar);
+
+
+// CURRYING
+// Currying in JavaScript is a functional programming technique where a function that takes multiple arguments is transformed into a sequence of functions, each taking a single argument.
+
+// Example without currying:
+function add(a, b){
+    return a+b;
+}
+console.log(add(2, 3));
+
+// Example with currying:
+function add(a){
+    return function(b){
+        return a+b;
+    };
+}
+// Now, you call the function in two steps
+const addTwo = add(2); // returns a new function that adds 2
+console.log(addTwo(3)); // Output: 5
+
+// Or, you can call it in a single step like this:
+console.log(add(2)(3)); // Output: 5
 
